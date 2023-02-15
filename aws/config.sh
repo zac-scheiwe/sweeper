@@ -40,8 +40,8 @@ user_parameter_defaults=(
 	"user123"
 	"twsPassword"
 	"your.email@email.com"
-	"throwaway@gmail.com"
-	"throwawaypassword"
+	"ibkr.sweeper@gmail.com"
+	"ymxbpneqchhvcati"
 )
 
 const_parameters=(
