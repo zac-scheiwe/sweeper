@@ -9,7 +9,7 @@ Daily automatic currency conversion and stock purchasing for Interactive Brokers
 
 Create a free AWS account: https://aws.amazon.com/free
 
-Sign in to the AWS console. In AWS Cloudshell, run the following code:
+Sign in to the AWS console. In AWS CloudShell, run the following code to create the AWS resources required for sweeper.
 
     git clone https://github.com/zac-scheiwe/sweeper.git
     cd sweeper
@@ -28,7 +28,17 @@ Fill in your job parameters as prompted. If left blank, the default is used. The
 | `TWS_USERID`          | Your Interactive Brokers username                                   | user123                    |
 | `TWS_PASSWORD`        | Your Interactive Brokers password                                   | twsPassword                |
 | `RECEIVER_EMAIL_ADDRESS`    | Email address to receive job failure notifications            | your.email@email.com       |
-| `SENDER_GMAIL_ADDRESS`      | Gmail address to send job failure notifications               | throwaway@gmail.com        |
-| `SENDER_GMAIL_PASSWORD`     | Gmail app password                                            | throwawaypassword          |
+| `SENDER_GMAIL_ADDRESS`      | Gmail address to send job failure notifications               | ibkr.sweeper@gmail.com     |
+| `SENDER_GMAIL_PASSWORD`     | Gmail app password                                            | ymxbpneqchhvcati           |
 
-For more information about the Docker container: https://github.com/UnusualAlpha/ib-gateway-docker
+To view past sweeper runs, go to AWS Batch -> Jobs.
+
+To disable sweeper, disable the sweeper schedule in AWS EventBridge -> Schedules 
+
+To delete all AWS resources required by sweeper, run the following code in AWS CloudShell.
+
+    git clone https://github.com/zac-scheiwe/sweeper.git
+    cd sweeper
+    bash aws-create.sh
+
+For more information about the Docker container this project depends on, see https://github.com/UnusualAlpha/ib-gateway-docker
