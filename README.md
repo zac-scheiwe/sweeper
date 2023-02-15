@@ -15,22 +15,20 @@ Sign in to the AWS console. In AWS Cloudshell, run the following code:
     cd sweeper
     bash aws-create.sh
 
+Fill in your job parameters as prompted. If left blank, the default is used. The job will NOT run with only default parameter values. You can edit your parameters directly in AWS Systems Manager -> Parameter Store.
+
 | Parameter             | Description                                                         | Default                    |
 | --------------------- | ------------------------------------------------------------------- | -------------------------- |
 | `DEPOSIT_CURRENCY`    | The currency of your spare cash balance                             | NZD                        |
 | `TRADE_CURRENCY`      | The currency your stock is traded in                                | USD                        |
-| `DEPOSIT_BALANCE_THRESHOLD` | **live** or **paper**                                               | **paper**                  |
-| `READ_ONLY_API`       | **yes** or **no** ([see](resources/config.ini#L316))                | **not defined**            |
-| `VNC_SERVER_PASSWORD` | VNC server password. If not defined, no VNC server will be started. | **not defined** (VNC disabled)|
-| `TWS_USERID`          | The TWS **username**.                                               |                            |
-| `TWS_PASSWORD`        | The TWS **password**.                                               |                            |
+| `DEPOSIT_BALANCE_THRESHOLD` | The necessary deposit currency balance for sweeper to convert currency | 1000              |
+| `TRADE_BALANCE_THRESHOLD`   | The necessary trade currency balance for sweeper to purchase stock     | 700               |
+| `STOCK_TICKER`        | The stock you would like to buy                                     | VT                         |
 | `TRADING_MODE`        | **live** or **paper**                                               | **paper**                  |
-| `READ_ONLY_API`       | **yes** or **no** ([see](resources/config.ini#L316))                | **not defined**            |
-| `VNC_SERVER_PASSWORD` | VNC server password. If not defined, no VNC server will be started. | **not defined** (VNC disabled)|
-| `TWS_USERID`          | The TWS **username**.                                               |                            |
-| `TWS_PASSWORD`        | The TWS **password**.                                               |                            |
-| `TRADING_MODE`        | **live** or **paper**                                               | **paper**                  |
-| `READ_ONLY_API`       | **yes** or **no** ([see](resources/config.ini#L316))                | **not defined**            |
-| `VNC_SERVER_PASSWORD` | VNC server password. If not defined, no VNC server will be started. | **not defined** (VNC disabled)|
+| `TWS_USERID`          | Your Interactive Brokers username                                   | user123                    |
+| `TWS_PASSWORD`        | Your Interactive Brokers password                                   | twsPassword                |
+| `RECEIVER_EMAIL_ADDRESS`    | Email address to receive job failure notifications            | your.email@email.com       |
+| `SENDER_GMAIL_ADDRESS`      | Gmail address to send job failure notifications               | throwaway@gmail.com        |
+| `SENDER_GMAIL_PASSWORD`     | Gmail app password                                            | throwawaypassword          |
 
 For more information about the Docker container: https://github.com/UnusualAlpha/ib-gateway-docker
