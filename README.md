@@ -1,4 +1,4 @@
-<img align="left" src="https://github.com/zac-scheiwe/sweeper/blob/master/logo.png" height="50" /> sweeper
+<img align="left" src="https://github.com/zac-scheiwe/sweeper/blob/master/logo.png" height="80" /> sweeper
 ==
 
 
