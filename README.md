@@ -1,11 +1,11 @@
-
-
-<img align="left" src="https://github.com/zac-scheiwe/sweeper/blob/master/logo.png" height="200" /> 
-
 sweeper
 ==
 
+<img align="left" src="https://github.com/zac-scheiwe/sweeper/blob/master/logo.png" height="200" /> 
+
 Daily automatic currency conversion and stock purchasing for Interactive Brokers. Converts your deposit currency and submits a LOC (limit on close) buy order for your stock just before the NYSE closing auction each weekday. Only runs when you have sufficient cash balance in your Interactive Brokers account.
+
+==
 
 ## Installation
 
