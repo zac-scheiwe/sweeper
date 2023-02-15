@@ -6,6 +6,12 @@ echo "Working...."
 # Create configured json files
 cp templates/* configured
 
+echo -n "GitHub username [zac-scheiwe]: "
+read NAME
+if [[ $NAME == "" ]]; then
+	NAME="zac-scheiwe"
+fi
+
 sed -i "s/ACCOUNT_ID/$ACCOUNT_ID/g" configured/*.json
 sed -i "s/NAME/$NAME/g" configured/*.json
 sed -i "s/REGION/$AWS_REGION/g" configured/*.json
