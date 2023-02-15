@@ -1,5 +1,5 @@
 {
-    "image": "ghcr.io/GITHUB_USER/sweeper:master",
+    "image": "IMAGE_LOCATION",
     "executionRoleArn": "arn:aws:iam::ACCOUNT_ID:role/NAME",
     "resourceRequirements": [
         {

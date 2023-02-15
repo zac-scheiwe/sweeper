@@ -1,20 +1,15 @@
 #!/bin/bash
 cd "$(dirname "$0")/aws"
 source parameter-config.sh
-echo "Working...."
 
 # Create configured json files
 mkdir configured
 cp templates/* configured
 
-# Set GITHUB_USER
-echo -n "GitHub username [zac-scheiwe]: "
-read GITHUB_USER
-if [[ $GITHUB_USER == "" ]]; then
-	GITHUB_USER="zac-scheiwe"
-fi
+# Docker image url
+IMAGE_LOCATION="ghcr.io/zac-scheiwe/sweeper:master"
 
-sed -i "s/GITHUB_USER/$GITHUB_USER/g" configured/*.json
+sed -i "s/IMAGE_LOCATION/$IMAGE_LOCATION/g" configured/*.json
 sed -i "s/ACCOUNT_ID/$ACCOUNT_ID/g" configured/*.json
 sed -i "s/NAME/$NAME/g" configured/*.json
 sed -i "s/REGION/$AWS_REGION/g" configured/*.json
