@@ -31,6 +31,8 @@ Fill in your job parameters as prompted. If left blank, the default is used. The
 | `SENDER_GMAIL_ADDRESS`      | Gmail address to send job failure notifications               | ibkr.sweeper@gmail.com     |
 | `SENDER_GMAIL_PASSWORD`     | Gmail app password                                            | ymxbpneqchhvcati           |
 
+To keep job failure notifications private, create a new Google account, turn on 2-step verification, then create an App Password to share with sweeper.
+
 To view past sweeper runs, go to AWS Batch -> Jobs.
 
 To disable sweeper, disable the sweeper schedule in AWS EventBridge -> Schedules 
@@ -39,6 +41,6 @@ To delete all AWS resources required by sweeper, run the following code in AWS C
 
     git clone https://github.com/zac-scheiwe/sweeper.git
     cd sweeper
-    bash aws-create.sh
+    bash aws-delete.sh
 
 For more information about the Docker container this project depends on, see https://github.com/UnusualAlpha/ib-gateway-docker
