@@ -35,7 +35,7 @@ To keep job failure notifications private, create a new Google account, turn on 
 
 To view past sweeper runs, go to AWS Batch -> Jobs.
 
-To disable sweeper, disable the sweeper schedule in AWS EventBridge -> Schedules 
+To disable sweeper, disable the sweeper schedule in AWS EventBridge -> Schedules.
 
 To delete all AWS resources required by sweeper, run the following code in AWS CloudShell.
 
