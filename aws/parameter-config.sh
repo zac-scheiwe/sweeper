@@ -6,11 +6,6 @@ unwrap () {
 	sed -e 's/^"//' -e 's/"$//' <<<"$1"
 }
 
-# Set ACCOUNT_ID
-aws sts get-caller-identity > temp.json
-ACCOUNT_ID=$(unwrap $(jq '.Account' temp.json))
-rm temp.json
-
 echo -n "Job Name [sweeper]: "
 read NAME
 if [[ $NAME == "" ]]; then

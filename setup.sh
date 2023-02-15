@@ -6,12 +6,18 @@ echo "Working...."
 # Create configured json files
 cp templates/* configured
 
+# Set ACCOUNT_ID
+aws sts get-caller-identity > temp.json
+ACCOUNT_ID=$(unwrap $(jq '.Account' temp.json))
+
+# Set USER_NAME
 echo -n "GitHub username [zac-scheiwe]: "
-read NAME
-if [[ $NAME == "" ]]; then
-	NAME="zac-scheiwe"
+read GITHUB_USER
+if [[ $GITHUB_USER == "" ]]; then
+	GITHUB_USER="zac-scheiwe"
 fi
 
+sed -i "s/GITHUB_USER/$GITHUB_USER/g" configured/*.json
 sed -i "s/ACCOUNT_ID/$ACCOUNT_ID/g" configured/*.json
 sed -i "s/NAME/$NAME/g" configured/*.json
 sed -i "s/REGION/$AWS_REGION/g" configured/*.json
