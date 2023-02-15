@@ -1,17 +1,21 @@
 sweeper
-========
+==
 
-sweeper invests your spare cash in a stock of your choice. The sweeper converts your deposit currency and submits a LOC (limit on close) buy order just before the NYSE closing auction each weekday. The sweeper only acts when you have enough spare cash.
+Invests your spare cash in a stock of your choice. Converts your deposit currency and submits a LOC (limit on close) buy order just before the NYSE closing auction each weekday. Only runs when you have sufficient cash balance in your Interactive Brokers account.
+
+#### Installation
+
+Create a free AWS account: https://aws.amazon.com/free
+
+Sign in to the AWS console. In AWS Cloudshell, run the following code:
+
+    git clone https://github.com/zac-scheiwe/sweeper.git
+    cd sweeper
+    bash aws-create.sh
+
+Parameters explained:
 
 
 
-    git submodule update --init # if building from git to get oniguruma
-    autoreconf -fi              # if building from git
-    ./configure --with-oniguruma=builtin
-    make -j8
-    make check
 
-
-Modified from https://github.com/UnusualAlpha/ib-gateway-docker
-
-<img src="https://github.com/UnusualAlpha/ib-gateway-docker/blob/master/logo.png" height="300" />
+For more information about the Docker container: https://github.com/UnusualAlpha/ib-gateway-docker
