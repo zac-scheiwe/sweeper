@@ -6,11 +6,16 @@ unwrap () {
 	sed -e 's/^"//' -e 's/"$//' <<<"$1"
 }
 
+# Set Name
 echo -n "Job Name [sweeper]: "
 read NAME
 if [[ $NAME == "" ]]; then
 	NAME="sweeper"
 fi
+
+# Set ACCOUNT_ID
+aws sts get-caller-identity > temp.json
+ACCOUNT_ID=$(unwrap $(jq '.Account' temp.json))
 
 user_parameters=(
 	"DEPOSIT_CURRENCY"

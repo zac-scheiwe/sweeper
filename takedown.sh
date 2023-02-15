@@ -3,10 +3,6 @@ cd "$(dirname "$0")/aws"
 source parameter-config.sh
 echo "Working...."
 
-# Set ACCOUNT_ID
-aws sts get-caller-identity > temp.json
-ACCOUNT_ID=$(unwrap $(jq '.Account' temp.json))
-
 # Delete const parameters
 for param in "${const_parameters[@]}"; do
 	aws ssm delete-parameter --name $param

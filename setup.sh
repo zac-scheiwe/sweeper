@@ -7,11 +7,7 @@ echo "Working...."
 mkdir configured
 cp templates/* configured
 
-# Set ACCOUNT_ID
-aws sts get-caller-identity > temp.json
-ACCOUNT_ID=$(unwrap $(jq '.Account' temp.json))
-
-# Set USER_NAME
+# Set GITHUB_USER
 echo -n "GitHub username [zac-scheiwe]: "
 read GITHUB_USER
 if [[ $GITHUB_USER == "" ]]; then
