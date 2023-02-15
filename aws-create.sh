@@ -1,13 +1,11 @@
 #!/bin/bash
 cd "$(dirname "$0")/aws"
-source parameter-config.sh
+source config.sh
+
 
 # Create configured json files
 mkdir configured
 cp templates/* configured
-
-# Docker image url
-IMAGE_LOCATION="ghcr.io/zac-scheiwe/sweeper:master"
 
 sed -i "s/IMAGE_LOCATION/$IMAGE_LOCATION/g" configured/*.json
 sed -i "s/ACCOUNT_ID/$ACCOUNT_ID/g" configured/*.json

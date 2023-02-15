@@ -1,6 +1,6 @@
 #!/bin/bash
 cd "$(dirname "$0")/aws"
-source parameter-config.sh
+source config.sh
 echo "Working...."
 
 # Delete const parameters

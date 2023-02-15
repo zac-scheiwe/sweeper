@@ -1,17 +1,16 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
+# Name given to AWS resources created
+NAME="sweeper"
+
+# Docker image url
+IMAGE_LOCATION="ghcr.io/zac-scheiwe/sweeper:master"
+
 # Removes first and last "" from string
 unwrap () {
 	sed -e 's/^"//' -e 's/"$//' <<<"$1"
 }
-
-# Set Name
-echo -n "Job Name [sweeper]: "
-read NAME
-if [[ $NAME == "" ]]; then
-	NAME="sweeper"
-fi
 
 # Set ACCOUNT_ID
 aws sts get-caller-identity > temp.json
