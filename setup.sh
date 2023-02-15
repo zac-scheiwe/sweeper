@@ -4,6 +4,7 @@ source parameter-config.sh
 echo "Working...."
 
 # Create configured json files
+mkdir configured
 cp templates/* configured
 
 # Set ACCOUNT_ID

@@ -27,7 +27,7 @@ aws batch update-compute-environment --compute-environment $NAME \
 	--state DISABLED
 sleep 1
 aws batch delete-compute-environment --compute-environment $NAME
-rm configured/*.json
+rm -r configured
 
 # Delete Batch execution role
 aws iam detach-role-policy --role-name $NAME \
