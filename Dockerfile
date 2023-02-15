@@ -31,7 +31,7 @@ RUN curl -sSL https://github.com/UnusualAlpha/ib-gateway-docker/releases/downloa
 RUN sha256sum --check ./ibgateway-${IB_GATEWAY_VERSION}-standalone-linux-x64.sh.sha256
 RUN chmod a+x ./ibgateway-${IB_GATEWAY_VERSION}-standalone-linux-x64.sh
 RUN ./ibgateway-${IB_GATEWAY_VERSION}-standalone-linux-x64.sh -q -dir /root/Jts/ibgateway/${IB_GATEWAY_VERSION}
-COPY ./config/ibgateway/jts.ini /root/Jts/jts.ini
+COPY ./docker/config/ibgateway/jts.ini /root/Jts/jts.ini
 
 # Install IBC
 RUN curl -sSL https://github.com/IbcAlpha/IBC/releases/download/${IBC_VERSION}/IBCLinux-${IBC_VERSION}.zip --output IBCLinux-${IBC_VERSION}.zip
@@ -39,10 +39,10 @@ RUN mkdir /root/ibc
 RUN unzip ./IBCLinux-${IBC_VERSION}.zip -d /root/ibc
 RUN chmod -R u+x /root/ibc/*.sh 
 RUN chmod -R u+x /root/ibc/scripts/*.sh
-COPY ./config/ibc/config.ini.tmpl /root/ibc/config.ini.tmpl
+COPY ./docker/config/ibc/config.ini.tmpl /root/ibc/config.ini.tmpl
 
 # Copy scripts
-COPY ./docker-scripts /root/scripts
+COPY ./docker/scripts /root/scripts
 
 #
 # Build Stage: build production image
@@ -92,4 +92,4 @@ RUN pip install -r requirements.txt
 COPY sweeper.py .
 
 # Start run script
-CMD ["/root/docker-scripts/run.sh"]
+CMD ["/root/docker/scripts/run.sh"]
