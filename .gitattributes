@@ -1,2 +1,0 @@
-software/IBCLinux-3.15.2.zip filter=lfs diff=lfs merge=lfs -text
-software/ibgateway-10.20.1i-standalone-linux-x64.sh filter=lfs diff=lfs merge=lfs -text
