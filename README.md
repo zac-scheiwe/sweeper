@@ -1,7 +1,7 @@
 sweeper
-==
+====
 
-sweeper invests your spare cash in a stock of your choice. The sweeper converts your deposit currency and submits a LOC (limit on close) buy order just before the NYSE closing auction each weekday. The sweeper only acts when you have enough spare cash (deposit currency balance > DEPOSIT_BALANCE_THRESHOLD).
+sweeper invests your spare cash in a stock of your choice. The sweeper converts your deposit currency and submits a LOC (limit on close) buy order just before the NYSE closing auction each weekday. The sweeper only acts when you have enough spare cash.
 
 
 
