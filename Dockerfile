@@ -42,7 +42,7 @@ RUN chmod -R u+x /root/ibc/scripts/*.sh
 COPY ./config/ibc/config.ini.tmpl /root/ibc/config.ini.tmpl
 
 # Copy scripts
-COPY ./scripts /root/scripts
+COPY ./docker-scripts /root/scripts
 
 #
 # Build Stage: build production image
@@ -92,4 +92,4 @@ RUN pip install -r requirements.txt
 COPY sweeper.py .
 
 # Start run script
-CMD ["/root/scripts/run.sh"]
+CMD ["/root/docker-scripts/run.sh"]
