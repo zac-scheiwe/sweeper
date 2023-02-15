@@ -1,4 +1,4 @@
-<img src="https://github.com/zac-scheiwe/sweeper/blob/master/Picture2.png" height="300" />
+<img src="https://github.com/zac-scheiwe/sweeper/blob/master/logo.png" height="300" />
 
 Invests your spare cash in a stock of your choice. Converts your deposit currency and submits a LOC (limit on close) buy order just before the NYSE closing auction each weekday. Only runs when you have sufficient cash balance in your Interactive Brokers account.
 
