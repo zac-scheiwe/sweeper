@@ -1,0 +1,11 @@
+{
+  "computeEnvironmentName": "NAME",
+  "type": "MANAGED",
+  "state": "ENABLED",
+  "computeResources": {
+    "type": "FARGATE",
+    "maxvCpus": 1,
+    "subnets": [],
+    "securityGroupIds": []
+  }
+}

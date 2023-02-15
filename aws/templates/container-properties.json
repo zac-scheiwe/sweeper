@@ -1,0 +1,77 @@
+{
+    "image": "public.ecr.aws/b9d9c6l6/sweeper:latest",
+    "executionRoleArn": "arn:aws:iam::ACCOUNT_ID:role/NAME",
+    "resourceRequirements": [
+        {
+            "value": "1",
+            "type": "VCPU"
+        },
+        {
+            "value": "2048",
+            "type": "MEMORY"
+        }
+    ],
+    "fargatePlatformConfiguration": {
+        "platformVersion": "LATEST"
+    },
+    "networkConfiguration": {
+        "assignPublicIp": "ENABLED"
+    },
+    "logConfiguration": {
+        "logDriver": "awslogs"
+    },
+    "secrets": [
+        {
+        "name": "SENDER_GMAIL_ADDRESS",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/SENDER_GMAIL_ADDRESS"
+        },
+        {
+        "name": "READ_ONLY_API",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/READ_ONLY_API"
+        },
+        {
+        "name": "STOCK_TICKER",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/STOCK_TICKER"
+        },
+        {
+        "name": "TWS_PASSWORD",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/TWS_PASSWORD"
+        },
+        {
+        "name": "RECEIVER_EMAIL_ADDRESS",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/RECEIVER_EMAIL_ADDRESS"
+        },
+        {
+        "name": "DEPOSIT_CURRENCY",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/DEPOSIT_CURRENCY"
+        },
+        {
+        "name": "BPS_SAFETY",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/BPS_SAFETY"
+        },
+        {
+        "name": "TRADE_CURRENCY",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/TRADE_CURRENCY"
+        },
+        {
+        "name": "DEPOSIT_BALANCE_THRESHOLD",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/DEPOSIT_BALANCE_THRESHOLD"
+        },
+        {
+        "name": "TRADE_BALANCE_THRESHOLD",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/TRADE_BALANCE_THRESHOLD"
+        },
+        {
+        "name": "SENDER_GMAIL_APP_PASSWORD",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/SENDER_GMAIL_APP_PASSWORD"
+        },
+        {
+        "name": "TWS_USERID",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/TWS_USERID"
+        },
+        {
+        "name": "TRADING_MODE",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/TRADING_MODE"
+        }
+    ]
+}

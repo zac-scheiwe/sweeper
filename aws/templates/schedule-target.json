@@ -1,0 +1,9 @@
+{
+    "Arn": "arn:aws:scheduler:::aws-sdk:batch:submitJob",
+    "Input": "",
+    "RetryPolicy": {
+      "MaximumEventAgeInSeconds": 300,
+      "MaximumRetryAttempts": 1
+    },
+    "RoleArn": "arn:aws:iam::ACCOUNT_ID:role/NAME"
+}

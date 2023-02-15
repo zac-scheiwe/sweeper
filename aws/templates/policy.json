@@ -1,0 +1,19 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "ssm:GetParameters",
+            "Resource": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "batch:SubmitJob",
+            "Resource": [
+                "arn:aws:batch:REGION:ACCOUNT_ID:job-definition/NAME",
+                "arn:aws:batch:REGION:ACCOUNT_ID:job-definition/NAME:*",
+                "arn:aws:batch:REGION:ACCOUNT_ID:job-queue/NAME"
+            ]
+        }
+    ]
+}

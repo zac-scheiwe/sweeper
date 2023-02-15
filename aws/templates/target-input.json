@@ -1,0 +1,5 @@
+{
+    "JobDefinition": "arn:aws:batch:REGION::ACCOUNT_ID:job-definition/NAME:latest",
+    "JobName": "NAME",
+    "JobQueue": "arn:aws:batch:REGION:ACCOUNT_ID:job-queue/NAME"
+}
