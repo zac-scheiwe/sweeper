@@ -29,7 +29,7 @@ Fill in your job parameters as prompted. If left blank, the default is used. The
 | `TWS_PASSWORD`        | Your Interactive Brokers password                                   | twsPassword                |
 | `RECEIVER_EMAIL_ADDRESS`    | Email address to receive job failure notifications            | your.email@email.com       |
 | `SENDER_GMAIL_ADDRESS`      | Gmail address to send job failure notifications               | ibkr.sweeper@gmail.com     |
-| `SENDER_GMAIL_PASSWORD`     | Gmail app password                                            | ymxbpneqchhvcati           |
+| `SENDER_GMAIL_APP_PASSWORD`     | Gmail app password                                            | ymxbpneqchhvcati           |
 
 To keep job failure notifications private, create a new Google account, turn on 2-step verification, then create an App Password to share with sweeper.
 
