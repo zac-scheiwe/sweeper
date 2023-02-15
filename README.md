@@ -1,6 +1,6 @@
 
 
-<img align="right" src="https://github.com/zac-scheiwe/sweeper/blob/master/logo.png" height="200" /> 
+<img align="left" src="https://github.com/zac-scheiwe/sweeper/blob/master/logo.png" height="200" /> 
 
 sweeper
 ==
