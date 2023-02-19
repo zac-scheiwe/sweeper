@@ -7,7 +7,7 @@ source config.sh
 mkdir configured
 cp templates/* configured
 
-sed -i "s/IMAGE_LOCATION/$IMAGE_LOCATION/g" configured/*.json
+sed -i "s|IMAGE_LOCATION|$IMAGE_LOCATION|g" configured/*.json
 sed -i "s/ACCOUNT_ID/$ACCOUNT_ID/g" configured/*.json
 sed -i "s/NAME/$NAME/g" configured/*.json
 sed -i "s/REGION/$AWS_REGION/g" configured/*.json
