@@ -1,7 +1,7 @@
 #!/bin/bash
 cd "$(dirname "$0")/aws"
 source config.sh
-
+echo "Working...."
 
 # Create configured json files
 mkdir configured
