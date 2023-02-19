@@ -14,6 +14,7 @@ Sign in to the AWS console. In AWS CloudShell, run the following code to create 
     git clone https://github.com/zac-scheiwe/sweeper.git
     cd sweeper
     bash aws-create.sh
+    
 
 Fill in your job parameters as prompted. If left blank, the default is used. The job will NOT run with only default parameter values. You can edit your parameters directly in AWS Systems Manager -> Parameter Store.
 
@@ -42,5 +43,6 @@ To delete all AWS resources required by sweeper, run the following code in AWS C
     git clone https://github.com/zac-scheiwe/sweeper.git
     cd sweeper
     bash aws-delete.sh
+    
 
 For more information about the Docker container this project depends on, see https://github.com/UnusualAlpha/ib-gateway-docker
