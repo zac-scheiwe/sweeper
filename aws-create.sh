@@ -34,7 +34,7 @@ aws iam create-role --role-name $NAME \
 	--assume-role-policy-document file://configured/role.json
 aws iam create-policy --policy-name $NAME \
 	--policy-document file://configured/policy.json
-aws iam attach-role-policy --policy-arn arn:aws:iam::493784563160:policy/$NAME \
+aws iam attach-role-policy --policy-arn arn:aws:iam::$ACCOUNT_ID:policy/$NAME \
 	--role-name $NAME
 aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy \
 	--role-name $NAME
