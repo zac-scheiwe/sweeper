@@ -7,14 +7,9 @@ NAME="sweeper"
 # Docker image url
 IMAGE_LOCATION="ghcr.io/zac-scheiwe/sweeper:master"
 
-# Removes first and last "" from string
-unwrap () {
-	sed -e 's/^"//' -e 's/"$//' <<<"$1"
-}
-
 # Set ACCOUNT_ID
 aws sts get-caller-identity > temp.json
-ACCOUNT_ID=$(unwrap $(jq '.Account' temp.json))
+ACCOUNT_ID=$(jq '.Account' temp.json | tr -d '"')
 
 user_parameters=(
 	"DEPOSIT_CURRENCY"

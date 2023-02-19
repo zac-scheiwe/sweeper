@@ -50,7 +50,7 @@ for s in ${subnets[@]}; do
 done
 
 # Add group id to environment.json
-group_id=$(unwrap $(aws ec2 describe-security-groups | jq '.[] | .[] | select(.GroupName == "default") | .GroupId'))
+group_id=$(aws ec2 describe-security-groups | jq '.[] | .[] | select(.GroupName == "default") | .GroupId' | tr -d '"')
 jq --arg v $group_id '.computeResources.securityGroupIds = [$v]' configured/environment.json > temp.json
 mv temp.json configured/environment.json
 
@@ -71,7 +71,7 @@ aws batch register-job-definition \
 
 
 # Configure schedule-target.json
-job_definition_arn=$(unwrap $(jq '.jobDefinitionArn' temp.json))
+job_definition_arn=$(jq '.jobDefinitionArn' temp.json | tr -d '"')
 jq --arg v $job_definition_arn '.JobDefinition = $v' configured/target-input.json > temp.json
 mv temp.json configured/target-input.json
 input_str=$(jq -c . configured/target-input.json)
