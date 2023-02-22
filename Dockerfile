@@ -92,4 +92,4 @@ RUN pip install -r requirements.txt
 COPY sweeper.py .
 
 # Start run script
-CMD ["/root/docker/scripts/run.sh"]
+CMD ["/root/scripts/run.sh"]
