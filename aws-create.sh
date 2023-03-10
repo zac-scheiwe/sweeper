@@ -59,7 +59,7 @@ aws batch create-compute-environment --cli-input-json file://configured/environm
 sleep 1
 aws batch update-compute-environment --compute-environment $NAME \
 	--state ENABLED
-sleep 1
+sleep 2
 aws batch create-job-queue --cli-input-json file://configured/job-queue.json
 aws batch register-job-definition \
     --job-definition-name $NAME \
