@@ -1,6 +1,8 @@
 import time, sys, os, smtplib, ssl
 from math import isnan
 from ib_insync import *
+import yfinance as yf
+from datetime import date, timedelta
 # util.startLoop()  # uncomment this line when in a notebook
 
 env_params = dict(os.environ)
@@ -11,6 +13,8 @@ STOCK_TICKER = env_params['STOCK_TICKER']
 
 DEPOSIT_BALANCE_THRESHOLD = float(env_params['DEPOSIT_BALANCE_THRESHOLD'])
 TRADE_BALANCE_THRESHOLD = float(env_params['TRADE_BALANCE_THRESHOLD'])
+
+PRICE_MODE = env_params['PRICE_MODE']
 BPS_SAFETY = float(env_params['BPS_SAFETY'])
 
 ib = IB()
@@ -79,17 +83,29 @@ def get_market_price(contract):
         return None
     return market_data.marketPrice()
 
-def get_limit_price_and_qty(cash_value_target, market_price, bps_safety):  # for buy order
-    min_limit_price = market_price * (1 + bps_safety/1e4)
+def get_last_close_price(stock_ticker):
+    today = date.today()
+    stock_data = yf.download(stock_ticker, today - timedelta(7), today)
+    close_price = round(stock_data.iloc[-1]['Close'], 2)
+    return close_price
+
+def get_limit_price_and_qty(cash_value_target, ref_price, bps_safety):  # for buy order
+    min_limit_price = ref_price * (1 + bps_safety/1e4)
     limit_qty = int(cash_value_target / min_limit_price)
-    limit_price = int(cash_value_target * 100 / limit_qty) / 100   # Rounding down to 2dp
+    limit_price = round(cash_value_target / limit_qty, 2)
     return limit_price, limit_qty
 
 def submit_auction_buy_order(contract, cash_value_target):
-    market_price = get_market_price(contract)
-    if market_price is None:
+    if PRICE_MODE == "market":    
+        ref_price = get_market_price(contract)
+    elif PRICE_MODE == "close":
+        ref_price = get_last_close_price(STOCK_TICKER)
+    else:
         return None
-    limit_price, limit_qty = get_limit_price_and_qty(cash_value_target, market_price, BPS_SAFETY)
+    
+    if ref_price is None:
+        return None
+    limit_price, limit_qty = get_limit_price_and_qty(cash_value_target, ref_price, BPS_SAFETY)
     order = Order(action='BUY', orderType='LOC', totalQuantity=limit_qty, 
                   lmtPrice=limit_price, transmit=True, usePriceMgmtAlgo=True)
     trade = ib.placeOrder(contract, order)

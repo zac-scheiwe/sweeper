@@ -41,11 +41,13 @@ user_parameter_defaults=(
 
 const_parameters=(
 	"BPS_SAFETY"
+	"PRICE_MODE"
 	"READ_ONLY_API"
 )
 
 const_parameter_defaults=(
 	20
+	"market"
 	"no"
 )
 
