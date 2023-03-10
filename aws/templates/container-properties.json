@@ -72,6 +72,10 @@
         {
         "name": "TRADING_MODE",
         "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/TRADING_MODE"
+        },
+        {
+        "name": "PRICE_MODE",
+        "valueFrom": "arn:aws:ssm:REGION:ACCOUNT_ID:parameter/PRICE_MODE"
         }
     ]
 }
